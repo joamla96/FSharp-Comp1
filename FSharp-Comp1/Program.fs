@@ -14,9 +14,23 @@ let rec insert item aList = match aList with
     | h :: t when item <= h -> [ item ] @ aList
     | h :: t when item > h -> [ h ] @ insert item t
     | _ -> failwith "Seek Shelter"
-    
+
 // Ex 3 - intersect
 //let rec intersect (list1, list2) =
+// https://stackoverflow.com/questions/20248006/f-intersection-of-lists
+let rec mem list x =
+  match list with
+  | [] -> false
+  | head :: tail ->
+    if x = head then true else mem tail x
+
+let rec intersection list1 list2 =
+  match list1 with
+  | head :: tail ->
+      let rest = intersection tail list2
+      if mem list2 head then head :: rest
+      else rest
+  | [] -> []
 
 // Ex 4 - Plus
 //let plus (list1, list2) =
