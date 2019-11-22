@@ -14,6 +14,15 @@ let rec insert item aList = match aList with
     | h :: t when item <= h -> [ item ] @ aList
     | h :: t when item > h -> [ h ] @ insert item t
     | _ -> failwith "Seek Shelter"
+    
+// Ex 3 - intersect
+//let rec intersect (list1, list2) =
+
+// Ex 4 - Plus
+//let plus (list1, list2) =
+
+// Ex 5 - Minus
+//let minus (minuendList, subtrahendList) =
 
 open System
 
