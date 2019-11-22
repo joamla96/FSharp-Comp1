@@ -19,7 +19,12 @@ let rec insert item aList = match aList with
 //let rec intersect (list1, list2) =
 
 // Ex 4 - Plus
-//let plus (list1, list2) =
+// https://stackoverflow.com/questions/13530495/union-of-two-lists-in-order-f
+let rec plus list1 list2 =
+    match list1, list2 with
+    | [], other | other, [] -> other
+    | x::xs, y::ys when x < y -> x :: (plus xs list2)
+    | x::xs, y::ys -> y :: (plus list1 ys)
 
 // Ex 5 - Minus
 //let minus (minuendList, subtrahendList) =
