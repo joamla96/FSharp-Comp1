@@ -21,7 +21,7 @@ let rec insert item aList = match aList with
     | [] -> [ item ]
     | h :: t when item <= h -> [ item ] @ aList
     | h :: t when item > h -> [ h ] @ insert item t
-    | _ -> failwith "Seek Shelter"
+    | _ -> failwith "Seek Shelter" // Throw exception
 
 // Ex 3 - intersect
 //let rec intersect (list1, list2) =
@@ -46,7 +46,6 @@ let rec intersection2 list1 list2 =
   | [] -> []
 
 // Ex 4 - Plus
-// https://stackoverflow.com/questions/13530495/union-of-two-lists-in-order-f
 let rec plus list1 list2 =
     match list1, list2 with
     | [], other | other, [] -> other
@@ -54,12 +53,12 @@ let rec plus list1 list2 =
     | xh::xt, yh::yt -> yh :: (plus list1 yt)
 
 // Ex 5 - Minus
-//let minus (minuendList, subtrahendList) =
 let rec minus list1 list2 =
     match list1, list2 with
     | [], other | other, [] -> other
     | x::xs, y::ys when x = y -> (minus xs ys)
     | x::xs, y::ys -> (minus list1 ys)
+
 
 let rec minus2 list1 list2 =
     match list1, list2 with
