@@ -21,8 +21,7 @@ let rec insert item aList = match aList with
 let rec mem list x =
   match list with
   | [] -> false
-  | head :: tail ->
-    if x = head then true else mem tail x
+  | head :: tail -> if x = head then true else mem tail x
 
 let rec intersection list1 list2 =
   match list1 with
@@ -32,16 +31,23 @@ let rec intersection list1 list2 =
       else rest
   | [] -> []
 
+// Ex 3 - seconday
+let rec intersection2 list1 list2 = 
+  match list1 with 
+  | head :: tail -> [head] @ intersection2 list2 tail
+  | [] -> []
+
 // Ex 4 - Plus
 // https://stackoverflow.com/questions/13530495/union-of-two-lists-in-order-f
 let rec plus list1 list2 =
     match list1, list2 with
     | [], other | other, [] -> other
-    | x::xs, y::ys when x < y -> x :: (plus xs list2)
-    | x::xs, y::ys -> y :: (plus list1 ys)
+    | xh::xt, yh::yt when xh < yh -> xh :: (plus xt list2)
+    | xh::xt, yh::yt -> yh :: (plus list1 yt)
 
 // Ex 5 - Minus
 //let minus (minuendList, subtrahendList) =
+
 
 open System
 
