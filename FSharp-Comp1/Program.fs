@@ -7,6 +7,14 @@ let rec count aList key = match aList with
     | h :: t when h = key -> 1 + (count t key)
     | _ -> 0
 
+// Ex 1 - using fold
+let f_count list number =
+    let folder state value =
+        if value = number then
+            state + 1
+        else
+            state + 0
+    List.fold folder 0 list
 
 // Ex 2
 let rec insert item aList = match aList with
