@@ -47,7 +47,19 @@ let rec plus list1 list2 =
 
 // Ex 5 - Minus
 //let minus (minuendList, subtrahendList) =
+let rec minus list1 list2 =
+    match list1, list2 with
+    | [], other | other, [] -> other
+    | x::xs, y::ys when x = y -> (minus xs ys)
+    | x::xs, y::ys -> (minus list1 ys)
 
+let rec minus2 list1 list2 =
+    match list1, list2 with
+    | [], other | other, [] -> other
+    | x::xs, y::ys when x > y -> (minus2 list1 ys)
+    | x::xs, y::ys when x < y -> x :: (minus2 xs ys)
+    | x::xs, y::ys when x = y -> (minus2 xs ys)
+    | x::xs, y::ys -> (minus2 xs list2)
 
 open System
 
